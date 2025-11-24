@@ -30,7 +30,7 @@ def check_for_updates(l,k,ver):
     if test_counter % 1440 != 0:
         return prv
     try:
-        res = {"updates_available": False, "app_updates": {}}
+        res = {"updates_available": False, "app_updates": []}
         with truenas_api_client.Client(uri=f"wss://{l}/websocket", verify_ssl=False) as c:
             c.call("auth.login_with_api_key", k)
             app_updates = c.call("app.query")
@@ -46,9 +46,8 @@ def check_for_updates(l,k,ver):
 
             for i in app_updates: # type: ignore
                 if i["upgrade_available"] == True:
-                    res["app_updates"][i["name"]] = True
-                else:
-                    res["app_updates"][i["name"]] = False
+                    res["app_updates"].append([i["name"]])
+
         prv = res
         return res
     except Exception as e:
