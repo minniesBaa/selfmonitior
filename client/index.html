@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>selfmonitior</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
             background-color: black;
+            color: white;
+            font-family: "Jetbrains Mono", monospace;
         }
+        h3 {
+            text-align: center;
+        }
+        .server_container {
+            border: 2px solid #fff;
+            width: 100%;
+            border-radius: 25px;
+        }
+        h1 {
+            margin: 15px;
+        }
+
     </style>
 </head>
 <body>
-    
+    <h3>selfmonitior</h3>
+    <div id="server_list">
+                                     <!-- id = server unique identifier -->
+        <div class="server_container" id="server-Server_Name">
+            <!-- Server name -->
+            <h1>Server Name</h1>
+            <br>
+            <div>
+                <!-- Server icons will go here -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
