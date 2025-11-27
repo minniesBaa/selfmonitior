@@ -2,6 +2,7 @@ import truenas_api_client, json, yaml, pythonping
 from flask import Flask
 from flask_apscheduler import APScheduler
 from flask_cors import CORS
+import waitress
 
 app = Flask(__name__)
 CORS(app)
@@ -93,5 +94,5 @@ def get():
 collect()
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    waitress.serve(app, port=6067, host="0.0.0.0")
     pass
